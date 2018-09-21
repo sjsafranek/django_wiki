@@ -7,8 +7,10 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
-    url(r'^login', auth_views.login),
-    url(r'^logout', auth_views.logout, { "next_page" : '/login'}),
+    # url(r'^login', auth_views.login),
+    # url(r'^logout', auth_views.logout, { "next_page" : '/login'}),
+    url(r'^login', auth_views.LoginView),
+    url(r'^logout', auth_views.LogoutView, { "next_page" : '/login'}),
 
     url(r'^check_permissions', views.checkPermissionsHandler),
 
