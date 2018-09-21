@@ -25,8 +25,13 @@ SECRET_KEY = '_67d)ww^_krz42xl0l56+si*mud67*4@gd*pt(&t#54vwc%2_^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
+ALLOWED_HOSTS = []
+try:
+    import Config
+    ALLOWED_HOSTS = Config.ALLOWED_HOSTS
+except:
+    pass
 
 # Application definition
 
