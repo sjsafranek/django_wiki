@@ -20,6 +20,7 @@ from django.urls import include
 # import django
 # from django.conf.urls import url
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('wiki/', include('wiki.urls')),
