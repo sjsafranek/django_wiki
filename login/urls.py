@@ -7,15 +7,9 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
-    # url(r'^login', auth_views.login),
-    # url(r'^logout', auth_views.logout, { "next_page" : '/login'}),
-
     path('', auth_views.LoginView.as_view(), name='index'),
     url(r'^login', auth_views.LoginView.as_view()),
-    # url(r'^login', auth_views.LoginView.as_view(template_name='registration/login.html')),
-    # url(r'^logout', auth_views.LogoutView.as_view(), { "next_page" : '/login'}),
     url(r'^logout', auth_views.LogoutView.as_view(next_page= '/login')),
-
     url(r'^check_permissions', views.checkPermissionsHandler),
 
     # https://simpleisbetterthancomplex.com/tutorial/2016/09/19/how-to-create-password-reset-view.html

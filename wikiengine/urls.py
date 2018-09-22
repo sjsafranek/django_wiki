@@ -16,10 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
-
-# import django
 # from django.conf.urls import url
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,8 +24,4 @@ urlpatterns = [
     path('api/', include('api.urls')),
     path('upload/', include('uploads.urls')),
     path('', include('login.urls')),
-
-    # path('images/', 'django.views.static.serve', name="images")
-
-    # url(r'^images/(?P<path>.*)$', 'django.views.static.serve', name='images'),
 ]
