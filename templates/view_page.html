@@ -90,6 +90,7 @@
 
                 var file_elems = [];
                 for (var i=0; i<section.files.length; i++) {
+                    if ("index" == section.files[i].name) continue;
                     file_elems.push(
                         $('<div>').addClass('navigation_section').append(
                             $('<a>', {
@@ -101,10 +102,10 @@
                 }
 
                 return $('<div>').addClass('navigation_section').append(
-                    // $('<a>', {
-                    //     href: section.href
-                    // }).text(section.name),
-                    $('<span>').text(section.name),
+                    // $('<span>').text(section.name),
+                    $('<a>', {
+                        href: section.href
+                    }).text(section.name),
                     dir_elems,
                     file_elems
                 );
