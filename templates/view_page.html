@@ -104,7 +104,8 @@
                 return $('<div>').addClass('navigation_section').append(
                     // $('<span>').text(section.name),
                     $('<a>', {
-                        href: section.href
+                        href: section.href,
+                        title: section.name
                     }).text(section.name),
                     dir_elems,
                     file_elems
