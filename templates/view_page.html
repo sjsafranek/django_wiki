@@ -46,6 +46,13 @@
             padding-bottom: 4px !important;
         }
 
+        .current-page {
+            color: #e74c3c !important;
+            border-color: #e74c3c !important;
+            border-style: solid !important;
+            border-width: 1px !important;
+        }
+
     </style>
 
 {% endblock %}
@@ -123,7 +130,18 @@
             var navigation = {{ navigation | safe }};
 
 
+            function createListLinkElem(section) {
+                return $('<li>').append(
+                    $('<a>', {
+                        href: section.href,
+                        title: section.name
+                    }).text(section.name.toTitleCase())
+                )
+            }
+
+
             function build_navigation_bar(section) {
+                // recursively build
                 var dir_elems = [];
                 if (section.dirs) {
                     for (var i in section.dirs) {
@@ -133,36 +151,27 @@
                     }
                 }
 
+                // build section list
                 var file_elems = [];
                 for (var i=0; i<section.files.length; i++) {
                     if ("index" == section.files[i].name) continue;
                     file_elems.push(
-                        $('<li>').append(
-                            $('<a>', {
-                                href: section.files[i].href,
-                                title: section.files[i].name
-                            }).text(section.files[i].name.toTitleCase())
-                        )
+                        createListLinkElem(section.files[i])
                     );
                 }
 
+                // return dropdown container
                 return $('<li>').addClass('dropdown').append(
                             $('<a>', {
-                                href: section.href,
+                                // href: section.href,
                                 title: section.name
                             }).text(section.name.toTitleCase()),
                             $('<ul>').addClass('dropdown-menu').append(
-                                $('<li>').append(
-                                    $('<a>', {
-                                        href: section.href,
-                                        title: section.name
-                                    }).text('index')
-                                ),
+                                createListLinkElem(section), // index
                                 dir_elems,
                                 file_elems
                             )
                         );
-
             }
 
 
@@ -175,17 +184,32 @@
 
 
 
-// dropdown
-// function open() {
-//     var pathname = window.location.pathname;
-//     var last = pathname.slice(pathname.length -1);
-//     if ('/' == last) {
-//         pathname = pathname.slice(0, -1);
-//     }
-//     $('a[href="'+pathname+'"]')
-//         .closest('.dropdown')
-//         .addClass('open');
-// }
+            // dropdown
+            function openNavigationParents(elem, list) {
+                list = list || [];
+                var parents = elem.closest('.dropdown');
+                if (parents.length) {
+                    list.push(parents);
+                    return openNavigationParents(parents.parent(), list);
+                }
+
+                list = list.reverse();
+                for (var i=0; i<list.length; i++) {
+                    list[i].addClass('open');
+                }
+            }
+
+            function openNavigationToCurrentPage() {
+                var pathname = window.location.pathname;
+                var last = pathname.slice(pathname.length -1);
+                if ('/' == last) {
+                    pathname = pathname.slice(0, -1);
+                }
+                var elem = $('a[href="'+pathname+'"]');
+                elem.addClass('current-page');
+                openNavigationParents(elem)
+            }
+
 
         </script>
 
@@ -202,6 +226,8 @@
             });
 
             feather.replace();
+
+            openNavigationToCurrentPage();
 
 		</script>
 
