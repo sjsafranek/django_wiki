@@ -22,11 +22,26 @@
         <!-- Font Awesome CSS -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
+        <link rel="stylesheet" href="https://corenav.com/dist/assets/css/style.css" />
+		<link rel="stylesheet" href="https://corenav.com/dist/themes/css/layout-admin.css" />
+
+        <script>
+	        // Polyfill
+	        String.prototype.toTitleCase = function() {
+	            var str = this.toLowerCase().split(' ');
+	            for (var i = 0; i < str.length; i++) {
+	              str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+	            }
+	            return str.join(' ');
+	        }
+	    </script>
+
         {% block style %}{% endblock style %}
 
     </head>
 
     <body>
         {% block content %}{% endblock content %}
+
     </body>
 </html>

@@ -142,7 +142,6 @@ def editPageHandler(request):
 @permission_required('WikiPage.delete_wikipage', raise_exception=True)
 def deletePageHandler(request):
     if "DELETE" == request.method:
-        # TODO
         results = delete_page(request.path)
         return JsonResponse(results)
     else:
