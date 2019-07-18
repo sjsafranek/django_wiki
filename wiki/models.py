@@ -38,6 +38,9 @@ class WikiPage(models.Model):
             fh.write(self.file_content)
         self.save()
 
+    def __repr__(self):
+        return self.page_url
+
 
 def fetchWikiPage(file_path, create_if_not_exists=False):
     pages = WikiPage.objects.filter(file_path=file_path, is_deleted=False)
