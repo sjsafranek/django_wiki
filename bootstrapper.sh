@@ -8,6 +8,7 @@ rm db.sqlite3
 # remove old makemigrations
 rm wiki/migrations/00*.py
 rm uploads/migrations/00*.py
+rm characters/migrations/00*.py
 
 # setup db and check for changes
 echo "Migrating database..."
