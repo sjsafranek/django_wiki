@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'api.apps.ApiConfig',
     'login.apps.LoginConfig',
     'uploads.apps.UploadsConfig',
+    'characters.apps.CharactersConfig',
 
     'django.contrib.admin',
     'django.contrib.auth',
