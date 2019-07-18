@@ -78,10 +78,28 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+
+                # # wiki
+                # 'django.contrib.auth.context_processors.auth',
+                # 'django.template.context_processors.debug',
+                # 'django.template.context_processors.i18n',
+                # 'django.template.context_processors.media',
+                # 'django.template.context_processors.request',
+                # 'django.template.context_processors.static',
+                # 'django.template.context_processors.tz',
+                # 'django.contrib.messages.context_processors.messages',
+                # "sekizai.context_processors.sekizai",
+                # # .end
             ],
         },
     },
 ]
+
+# # wiki
+# SITE_ID = 1
+# WIKI_ACCOUNT_HANDLING = True
+# WIKI_ACCOUNT_SIGNUP_ALLOWED = True
+# # .end
 
 WSGI_APPLICATION = 'wikiengine.wsgi.application'
 

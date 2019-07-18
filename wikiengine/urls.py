@@ -16,12 +16,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import include
+
 # from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('wiki/', include('wiki.urls')),
     path('api/', include('api.urls')),
-    path('upload/', include('uploads.urls')),
+    path('upload', include('uploads.urls')),
     path('', include('login.urls')),
+
+    path('test', include('wiki.urls')),
+
+    # url(regex  = r'^%s(?P<path>.*)$' %'/static/'[1:],
+    # view   = 'django.views.static.serve',
+    # kwargs = {'document_root': 'static/',
+    #           'show_indexes' : True}),
 ]

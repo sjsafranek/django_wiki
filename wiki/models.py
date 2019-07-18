@@ -8,8 +8,8 @@ from django.db.models import TextField
 from django.db.models import UUIDField
 
 class WikiPage(models.Model):
-    id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    page_url = models.CharField(max_length=200)
+    # id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    page_url = models.CharField(primary_key=True, max_length=200, editable=False)
     file_path = models.CharField(max_length=200)
     file_content = models.TextField()
     created_at = DateTimeField(auto_now_add=True)
