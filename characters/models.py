@@ -122,34 +122,39 @@ class Character(models.Model):
         default=1,
         validators=[MinValueValidator(1), MaxValueValidator(5000)]
     )
+
     ac = IntegerField(
         default=10,
         validators=[MinValueValidator(1), MaxValueValidator(50)]
     )
-    strength = IntegerField(
+
+    strength_ability = IntegerField(
         default=10,
         validators=[MinValueValidator(1), MaxValueValidator(30)]
     )
-    dexterity = IntegerField(
+    dexterity_ability = IntegerField(
         default=10,
         validators=[MinValueValidator(1), MaxValueValidator(30)]
     )
-    constitution = IntegerField(
+    constitution_ability = IntegerField(
         default=10,
         validators=[MinValueValidator(1), MaxValueValidator(30)]
     )
-    intelligence = IntegerField(
+    intelligence_ability = IntegerField(
         default=10,
         validators=[MinValueValidator(1), MaxValueValidator(30)]
     )
-    wisdom = IntegerField(
+    wisdom_ability = IntegerField(
         default=10,
         validators=[MinValueValidator(1), MaxValueValidator(30)]
     )
-    charisma = IntegerField(
+    charisma_ability = IntegerField(
         default=10,
         validators=[MinValueValidator(1), MaxValueValidator(30)]
     )
+
+    passive_perception = IntegerField(default=10)
+    passive_insight = IntegerField(default=10)
 
     description = TextField()
     biography = TextField()
