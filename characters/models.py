@@ -54,7 +54,7 @@ class Character(models.Model):
     )
 
     race = models.CharField(
-        max_length=12
+        max_length=12,
         choices=[
             (tag, tag) for tag in RACES
         ]
