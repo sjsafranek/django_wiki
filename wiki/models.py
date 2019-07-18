@@ -18,7 +18,7 @@ class WikiPage(models.Model):
     # md5hash
 
     class Meta:
-        unique_together = ((page_url, created_at))
+        unique_together = (('page_url', 'created_at'))
 
     def deleteFile(self):
         self.is_deleted = True
