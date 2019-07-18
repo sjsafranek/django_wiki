@@ -26,7 +26,7 @@ urlpatterns = [
     path('upload', include('uploads.urls')),
     path('', include('login.urls')),
 
-    path('test', include('wiki.urls')),
+    # path('test', include('wiki.urls')),
 
     # url(regex  = r'^%s(?P<path>.*)$' %'/static/'[1:],
     # view   = 'django.views.static.serve',
