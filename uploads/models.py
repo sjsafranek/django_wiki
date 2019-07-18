@@ -5,11 +5,11 @@ from django.db import models
 from django.db.models import CharField
 from django.db.models import DateTimeField
 from django.db.models import BooleanField
-from django.db.models import UUIDField
+# from django.db.models import UUIDField
 from django.db.models import TextField
 
 class ImageFile(models.Model):
-    id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    # id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     file_name = CharField(max_length=200)
     file_path = CharField(max_length=200)
     image_url = CharField(max_length=200)

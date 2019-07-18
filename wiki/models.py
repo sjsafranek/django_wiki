@@ -5,7 +5,7 @@ from django.db.models import CharField
 from django.db.models import DateTimeField
 from django.db.models import BooleanField
 from django.db.models import TextField
-from django.db.models import UUIDField
+# from django.db.models import UUIDField
 
 class WikiPage(models.Model):
     # id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
@@ -38,7 +38,7 @@ class WikiPage(models.Model):
             fh.write(self.file_content)
         self.save()
 
-    def __repr__(self):
+    def __str__(self):
         return self.page_url
 
 
