@@ -19,6 +19,9 @@ class ImageFile(models.Model):
     is_deleted = BooleanField(default=False)
     # md5hash
 
+    def __str__(self):
+        return self.image_url
+
     @classmethod
     def create(cls, blob):
         image_base64 = base64.b64encode(blob).decode('utf-8')

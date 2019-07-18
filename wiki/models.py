@@ -17,6 +17,9 @@ class WikiPage(models.Model):
     is_deleted = BooleanField(default=False)
     # md5hash
 
+    def __str__(self):
+        return self.page_url
+
     #class Meta:
     #    unique_together = (('page_url', 'created_at'))
 
@@ -38,8 +41,6 @@ class WikiPage(models.Model):
             fh.write(self.file_content)
         self.save()
 
-    def __str__(self):
-        return self.page_url
 
 
 def fetchWikiPage(file_path, create_if_not_exists=False):
