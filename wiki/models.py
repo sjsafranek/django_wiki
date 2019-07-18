@@ -9,13 +9,16 @@ from django.db.models import UUIDField
 
 class WikiPage(models.Model):
     # id = UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    page_url = models.CharField(primary_key=True, max_length=200, editable=False)
+    page_url = models.CharField(max_length=200, editable=False)
     file_path = models.CharField(max_length=200)
     file_content = models.TextField()
     created_at = DateTimeField(auto_now_add=True)
     updated_at = DateTimeField(auto_now=True)
     is_deleted = BooleanField(default=False)
     # md5hash
+
+    class Meta:
+        unique_together = ((page_url, created_at))
 
     def deleteFile(self):
         self.is_deleted = True
